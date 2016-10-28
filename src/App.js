@@ -5,13 +5,25 @@ import MyNav from './components/MyNav';
 import ImageCell from './components/ImageCell';
 
 import allImages from './model/images';
+// make array of objects
+const imagesArray = Object.keys(allImages).map( key =>  allImages[key] );
+// const colorOnly = imagesArray.filter(({category: cat}) => {cat === 'color'});
+const colorOnly = Object.keys(allImages)
+  .map( (key) => {
+      if (allImages[key].category === 'color') {
+        return allImages[key]
+      } else {
+        return 'category color not found'
+      }
+    }
+  )
 
+console.log(imagesArray);
+console.log(colorOnly);
 class App extends Component {
   constructor() {
     super();
-    // bind your methods
     this.loadColorsOnly = this.loadColorsOnly.bind(this);
-    // define initial state
     this.state = {
       images: allImages
     }
@@ -19,7 +31,7 @@ class App extends Component {
 
   loadColorsOnly() {
     this.setState({
-      images: allImages
+      images: colorOnly
     });
   }
 
@@ -32,7 +44,7 @@ class App extends Component {
             <Row>
             {
               Object.keys(this.state.images)
-              .map( key => <ImageCell key={key} details={this.state.images[key]} />)
+              .map( (key) => <ImageCell key={key} details={this.state.images[key]} />)
             }
             </Row>
           </Grid>
