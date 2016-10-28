@@ -5,9 +5,7 @@ import MyNav from './components/MyNav';
 import ImageCell from './components/ImageCell';
 
 import allImages from './model/images';
-// make array of objects
-const imagesArray = Object.keys(allImages).map( key =>  allImages[key] );
-// const colorOnly = imagesArray.filter(({category: cat}) => {cat === 'color'});
+
 const colorOnly = Object.keys(allImages)
   .map( (key) => {
       if (allImages[key].category === 'color') {
