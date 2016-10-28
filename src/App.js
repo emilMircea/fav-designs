@@ -6,6 +6,8 @@ import ImageCell from './components/ImageCell';
 
 import allImages from './model/images';
 
+console.log('make all categories work');
+
 const colorOnly = Object.keys(allImages)
   .map( (key) => {
       if (allImages[key].category === 'color') {
@@ -15,9 +17,8 @@ const colorOnly = Object.keys(allImages)
       }
     }
   )
-
-console.log(imagesArray);
 console.log(colorOnly);
+
 class App extends Component {
   constructor() {
     super();
