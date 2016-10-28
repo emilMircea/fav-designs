@@ -4,32 +4,10 @@ import { Grid, Row } from 'react-bootstrap';
 import MyNav from './components/MyNav';
 import ImageCell from './components/ImageCell';
 
+// IMPORT DATA AND FILTERS FROM MODEL
 import allImages from './model/images';
-
-console.log('begin extracting filters');
-
-
-const colorOnly = Object.keys(allImages)
-  .map( (key) => {
-      if (allImages[key].category === 'color') {
-        return allImages[key]
-      } else {
-        return 'category color not found'
-      }
-    }
-  )
-console.log(colorOnly);
-
-const fontOnly = Object.keys(allImages)
-  .map( (key) => {
-      if (allImages[key].category === 'font') {
-        return allImages[key]
-      } else {
-        return 'category font not found'
-      }
-    }
-  )
-console.log(fontOnly);
+import colorOnly from './model/ColorOnlyFilter';
+import fontOnly from './model/FontOnlyFilter';
 
 class App extends Component {
   constructor() {
