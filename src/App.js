@@ -6,6 +6,8 @@ import ImageCell from './components/ImageCell';
 
 import allImages from './model/images';
 
+console.log('begin extracting filters');
+
 
 const colorOnly = Object.keys(allImages)
   .map( (key) => {
