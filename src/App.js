@@ -55,12 +55,16 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <MyNav loadColorsOnly={this.loadColorsOnly} loadFontsOnly={this.loadFontsOnly} />
+          <MyNav
+            loadColorsOnly={this.loadColorsOnly}
+            loadFontsOnly={this.loadFontsOnly}
+          />
           <Grid>
             <Row>
             {
               Object.keys(this.state.images)
-              .map( (key) => <ImageCell key={key} details={this.state.images[key]} />)
+              .map( (key) =>
+                <ImageCell key={key} details={this.state.images[key]} />)
             }
             </Row>
           </Grid>
