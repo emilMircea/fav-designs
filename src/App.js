@@ -6,7 +6,6 @@ import ImageCell from './components/ImageCell';
 
 import allImages from './model/images';
 
-console.log('make all categories work');
 
 const colorOnly = Object.keys(allImages)
   .map( (key) => {
@@ -19,10 +18,22 @@ const colorOnly = Object.keys(allImages)
   )
 console.log(colorOnly);
 
+const fontOnly = Object.keys(allImages)
+  .map( (key) => {
+      if (allImages[key].category === 'font') {
+        return allImages[key]
+      } else {
+        return 'category font not found'
+      }
+    }
+  )
+console.log(fontOnly);
+
 class App extends Component {
   constructor() {
     super();
     this.loadColorsOnly = this.loadColorsOnly.bind(this);
+    this.loadFontsOnly = this.loadFontsOnly.bind(this);
     this.state = {
       images: allImages
     }
@@ -34,11 +45,17 @@ class App extends Component {
     });
   }
 
+  loadFontsOnly() {
+    this.setState({
+      images: fontOnly
+    });
+  }
+
   render() {
     return (
       <div className="App">
         <div className="App-header">
-          <MyNav loadColorsOnly={this.loadColorsOnly} />
+          <MyNav loadColorsOnly={this.loadColorsOnly} loadFontsOnly={this.loadFontsOnly} />
           <Grid>
             <Row>
             {

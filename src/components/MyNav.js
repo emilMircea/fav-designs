@@ -15,7 +15,7 @@ class MyNav extends Component {
         <Navbar.Collapse>
           <Nav pullRight>
             <NavItem eventKey={1} href="#" onClick={this.props.loadColorsOnly}>Colors</NavItem>
-            <NavItem eventKey={2} href="#">Fonts</NavItem>
+            <NavItem eventKey={2} href="#" onClick={this.props.loadFontsOnly} >Fonts</NavItem>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
