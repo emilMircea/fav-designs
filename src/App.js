@@ -8,12 +8,14 @@ import ImageCell from './components/ImageCell';
 import allImages from './model/images';
 import colorOnly from './model/ColorOnlyFilter';
 import fontOnly from './model/FontOnlyFilter';
+import animationOnly from './model/AnimationsOnlyFilter';
 
 class App extends Component {
   constructor() {
     super();
     this.loadColorsOnly = this.loadColorsOnly.bind(this);
     this.loadFontsOnly = this.loadFontsOnly.bind(this);
+    this.loadAnimationsOnly = this.loadAnimationsOnly.bind(this);
     this.state = {
       images: allImages
     }
@@ -31,6 +33,12 @@ class App extends Component {
     });
   }
 
+  loadAnimationsOnly() {
+    this.setState({
+      images: animationOnly
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -38,13 +46,14 @@ class App extends Component {
           <MyNav
             loadColorsOnly={this.loadColorsOnly}
             loadFontsOnly={this.loadFontsOnly}
+            loadAnimationsOnly={this.loadAnimationsOnly}
           />
           <Grid>
             <Row>
             {
               Object.keys(this.state.images)
               .map( (key) =>
-                <ImageCell key={key} details={this.state.images[key]} />)
+                <ImageCell id='imageCell' key={key} details={this.state.images[key]} />)
             }
             </Row>
           </Grid>

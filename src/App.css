@@ -7,7 +7,9 @@ p {
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 40px;
+  position: absolute;
+  top: 6px;
 }
 
 .App-header {
